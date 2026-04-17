@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "../Header";
+import Footer from "../Footer";
 
 export default function TwoColumns({children}) {
   return (
@@ -9,6 +10,7 @@ export default function TwoColumns({children}) {
         <div className="hidden md:block bg-[url(/auth-image.png)] bg-cover  w-[50vw]"></div>
         <Outlet />
       </div>
+      <Footer />
     </div>
   );
 }
