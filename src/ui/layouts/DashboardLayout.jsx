@@ -5,7 +5,7 @@ import Footer from "../Footer";
 export default function TwoColumns({children}) {
   return (
     <div className="bg-[#EBF3FE]">
-      <Header />
+      {/* <Header /> */}
       <Outlet />
       <Footer />
     </div>

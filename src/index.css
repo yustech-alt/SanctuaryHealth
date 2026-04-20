@@ -7,3 +7,9 @@
 /* (Optional) Force dark mode support */
 @custom-variant dark (&:is(.dark *));
 
+
+
+@theme {
+  --font-inter: "Inter", sans-serif;
+  --font-manrope: "Manrope", sans-serif;
+}

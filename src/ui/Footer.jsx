@@ -1,52 +1,65 @@
-import React from 'react'
-
-function Footer() {
+export default function Footer() {
   return (
-    <div className="w-full h-80 bg-orange-300 rounded-tl-3xl rounded-tr-3xl inline-flex flex-col justify-start items-start">
-    <div className="w-full max-w-[1280px] px-8 py-12 inline-flex justify-between items-start">
-        <div className="max-w-80 inline-flex flex-col justify-start items-start gap-4">
-            <div className="self-stretch flex flex-col justify-start items-start">
-                <div className="justify-center text-Primary-Normal text-lg font-bold font-['Manrope'] leading-7 text-[#5C97F8]">SanctuaryHealth</div>
-            </div>
-            <div className="self-stretch flex flex-col justify-start items-start">
-                <div className="justify-center text-black text-base font-normal font-['Manrope'] leading-6">Transforming medical accessibility for the<br/>next billion users through human-centric<br/>digital sanctuary design.</div>
-            </div>
+    <footer style={{ background: "#f5a623" }} className="py-12">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <h3
+              className="text-xl font-black mb-3"
+              style={{ color: "#7c2d12" }}
+            >
+              SanctuaryHealth
+            </h3>
+            <p className="text-sm leading-relaxed" style={{ color: "#92400e" }}>
+              Transforming medical accessibility for the next billion users
+              through human-centric digital sanctuary design.
+            </p>
+          </div>
+          <div>
+            <h4
+              className="font-bold mb-3 text-sm"
+              style={{ color: "#7c2d12" }}
+            >
+              Resources
+            </h4>
+            {["Patient Rights", "Support"].map((item) => (
+              <p
+                key={item}
+                className="text-sm mb-2 cursor-pointer hover:underline"
+                style={{ color: "#92400e" }}
+              >
+                {item}
+              </p>
+            ))}
+          </div>
+          <div>
+            <h4
+              className="font-bold mb-3 text-sm"
+              style={{ color: "#7c2d12" }}
+            >
+              Company
+            </h4>
+            {["Careers", "Terms of Service", "Privacy Policy"].map((item) => (
+              <p
+                key={item}
+                className="text-sm mb-2 cursor-pointer hover:underline"
+                style={{ color: "#92400e" }}
+              >
+                {item}
+              </p>
+            ))}
+          </div>
         </div>
-        <div className="flex justify-start items-start gap-12">
-            <div className="self-stretch inline-flex flex-col justify-start items-start gap-3">
-                <div className="self-stretch flex flex-col justify-start items-start">
-                    <div className="justify-center text-Primary-Normal text-base font-bold font-['Manrope'] leading-6 text-[#5C97F8]">Resources</div>
-                </div>
-                <div className="self-stretch opacity-80 flex flex-col justify-start items-start">
-                    <div className="justify-center text-black text-base font-normal font-['Manrope'] leading-6">Patient Rights</div>
-                </div>
-                <div className="self-stretch opacity-80 flex flex-col justify-start items-start">
-                    <div className="justify-center text-black text-base font-normal font-['Manrope'] leading-6">Support</div>
-                </div>
-            </div>
-            <div className="self-stretch inline-flex flex-col justify-start items-start gap-3">
-                <div className="self-stretch flex flex-col justify-start items-start">
-                    <div className="justify-center text-Primary-Normal text-base font-bold font-['Manrope'] leading-6 text-[#5C97F8]">Company</div>
-                </div>
-                <div className="self-stretch opacity-80 flex flex-col justify-start items-start">
-                    <div className="justify-center text-black text-base font-normal font-['Manrope'] leading-6">Careers</div>
-                </div>
-                <div className="self-stretch opacity-80 flex flex-col justify-start items-start">
-                    <div className="justify-center text-black text-base font-normal font-['Manrope'] leading-6">Terms of Service</div>
-                </div>
-                <div className="self-stretch opacity-80 flex flex-col justify-start items-start">
-                    <div className="justify-center text-black text-base font-normal font-['Manrope'] underline leading-6">Privacy Policy</div>
-                </div>
-            </div>
+        <div
+          className="pt-6 text-center text-sm"
+          style={{
+            borderTop: "1px solid rgba(146,64,14,0.2)",
+            color: "#92400e",
+          }}
+        >
+          © 2024 SanctuaryHealth. Professional Authority. Empathetic Care.
         </div>
-    </div>
-    <div className="w-full max-w-[1280px] p-8 border-t border-slate-200 flex flex-col justify-start items-start">
-        <div className="self-stretch flex flex-col justify-start items-start">
-            <div className="self-stretch text-center justify-center text-slate-500 text-base font-normal font-['Manrope'] leading-6">© 2024 SanctuaryHealth. Professional Authority. Empathetic Care.</div>
-        </div>
-    </div>
-</div>
-  )
+      </div>
+    </footer>
+  );
 }
-
-export default Footer

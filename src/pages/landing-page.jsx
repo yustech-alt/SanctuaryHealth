@@ -1,7 +1,6 @@
 import React from "react";
+import Landing from "../Features/Landing/Landing";
 
-function LandingPage() {
-  return <div>LandingPage</div>;
+export default function LandingPage() {
+  return <Landing />;
 }
-
-export default LandingPage;
