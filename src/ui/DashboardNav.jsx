@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom'; // Added necessary hooks
 import { Search, Bell, Settings } from 'lucide-react';
 
 function DashboardNav() {
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation(); // Used to check which link is active
 
-  // Sync scroll logic with your reference Navbar
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Helper function to style active links
+  const getLinkStyle = (path) => {
+    const isActive = location.pathname === path;
+    return isActive 
+      ? "text-[#006D44] border-b-2 border-[#006D44] pb-1 font-bold" 
+      : "text-gray-400 hover:text-gray-900 transition-colors";
+  };
 
   return (
     <nav
@@ -19,7 +29,6 @@ function DashboardNav() {
         left: 0,
         right: 0,
         zIndex: 50,
-        // Using the exact colors/blur from your reference
         background: scrolled ? "rgba(212, 212, 212, 0.727)" : "white",
         backdropFilter: scrolled ? "blur(12px)" : "none",
         boxShadow: scrolled
@@ -28,27 +37,31 @@ function DashboardNav() {
         transition: "all 0.3s ease",
       }}
     >
-      {/* Aligned with max-w-7xl to match your HomeDashboardPage grid */}
       <div className="max-w-7xl mx-auto px-10 flex items-center justify-between h-20">
         
         {/* Left: Logo & App Links */}
         <div className="flex items-center gap-10">
-          <h1 className="text-2xl font-bold text-[#006D44] tracking-tight cursor-pointer">
+          <h1 
+            onClick={() => navigate("/")} 
+            className="text-2xl font-bold text-[#006D44] tracking-tight cursor-pointer"
+          >
             SanctuaryHealth
           </h1>
+
           <div className="hidden md:flex gap-8 text-sm font-semibold">
-            <button className="text-[#006D44] border-b-2 border-[#006D44] pb-1 bg-transparent border-none cursor-pointer">
-              Home
-            </button>
-            <button className="text-gray-400 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer">
+            {/* Using Link for better performance and SEO */}
+            <Link to="/dashboard" className={getLinkStyle("/dashboard")}>
+              Dashboard
+            </Link>
+            <Link to="/dashboard/consultation" className={getLinkStyle("/dashboard/consultation")}>
               Consultations
-            </button>
-            <button className="text-gray-400 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer">
+            </Link>
+            <Link to="/dashboard/records" className={getLinkStyle("/dashboard/records")}>
               My Records
-            </button>
-            <button className="text-gray-400 hover:text-gray-900 transition-colors bg-transparent border-none cursor-pointer">
+            </Link>
+            <Link to="/dashboard/prescription" className={getLinkStyle("/dashboard/prescription")}>
               Prescriptions
-            </button>
+            </Link>
           </div>
         </div>
         
@@ -67,8 +80,13 @@ function DashboardNav() {
             <button className="p-2 bg-white/50 rounded-full hover:bg-white transition-colors border-none cursor-pointer shadow-sm">
               <Bell className="w-5 h-5 text-gray-600" />
             </button>
-            <button className="p-2 bg-white/50 rounded-full hover:bg-white transition-colors border-none cursor-pointer shadow-sm">
-              <Settings className="w-5 h-5 text-gray-600" />
+            
+            {/* Settings button routed to dashboard settings */}
+            <button 
+              onClick={() => navigate("/dashboard/settings")}
+              className={`p-2 rounded-full transition-colors border-none cursor-pointer shadow-sm ${location.pathname === '/dashboard/settings' ? 'bg-blue-100 text-blue-600' : 'bg-white/50 hover:bg-white text-gray-600'}`}
+            >
+              <Settings className="w-5 h-5" />
             </button>
             
             {/* Profile Section */}
