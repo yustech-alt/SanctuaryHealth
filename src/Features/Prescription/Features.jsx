@@ -28,10 +28,11 @@ export default function Features() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 shadow-slate-200/50 cursor-pointer"
       >
-        <div className="text-2xl mb-3">💰</div>
-        <h4 className="font-semibold text-gray-800 mb-2">Cost Transparency</h4>
+        
+        <div className="text-2xl mb-3">💊</div>
+        <h4 className="font-semibold text-gray-800 mb-2">Affordable Options</h4>
         <p className="text-sm text-gray-500 leading-relaxed">
-          See estimated costs at nearby clinics and hospitals before you visit
+          Discover generic drugs, PHCs, and community health workers
         </p>
       </motion.div>
 
@@ -44,10 +45,10 @@ export default function Features() {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="bg-slate-50 p-6 rounded-2xl shadow-sm border border-slate-200 cursor-pointer"
       >
-        <div className="text-2xl mb-3">💊</div>
-        <h4 className="font-semibold text-gray-800 mb-2">Affordable Options</h4>
+        <div className="text-2xl mb-3">📝</div>
+        <h4 className="font-semibold text-gray-800 mb-2">Prescription Guidance</h4>
         <p className="text-sm text-gray-500 leading-relaxed">
-          Discover generic drugs, PHCs, and community health workers
+          Get verified treatment plans with precise dosing and safety guidelines.
         </p>
       </motion.div>
 
