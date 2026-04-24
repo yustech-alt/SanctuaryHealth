@@ -57,7 +57,7 @@ export default function Footer() {
             color: "#92400e",
           }}
         >
-          © 2024 SanctuaryHealth. Professional Authority. Empathetic Care.
+          © {new Date().getFullYear()} SanctuaryHealth. Professional Authority. Empathetic Care.
         </div>
       </div>
     </footer>
